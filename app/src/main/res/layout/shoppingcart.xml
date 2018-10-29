@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+<!--    tools:context=".ui.checkout.CartFragment"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_cart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/btn_proceed_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:text="proceed_to_checkout"
+            android:layout_margin="@dimen/normal_size"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:animateLayoutChanges="true"
+        android:elevation="5dp"
+        android:background="@color/white"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/et_coupon"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_margin="@dimen/small_size"-->
+                <!--android:hint="coupon_code"-->
+                <!--android:paddingLeft="@dimen/normal_size"-->
+                <!--android:paddingRight="@dimen/normal_size"/>-->
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_coupon"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/small_size"-->
+                <!--android:background="@color/background"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:text="apply"/>-->
+        <!--</LinearLayout>-->
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:padding="@dimen/normal_size"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tax"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_tax_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="$0"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:padding="@dimen/normal_size"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="delivery"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_deli_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="$0"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:padding="@dimen/normal_size"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="total"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="$0"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_size"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/btn_checkout_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_size"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="order"
+                android:textColor="@android:color/white" />
+            <View
+                android:layout_width="@dimen/medium_size"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                />
+
+            <Button
+                android:id="@+id/btn_checkout_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_size"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="cancel"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_ordersum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:elevation="6dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_size"
+            android:gravity="center"
+            android:text="order_summary"
+            android:textColor="@color/red"
+            android:textSize="@dimen/normal_txt_size" />
+
+        <TextView
+            android:id="@+id/tv_orderid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_size"
+            android:textColor="@color/grey1"
+            android:layout_marginLeft="@dimen/padding_size"
+            android:layout_marginRight="@dimen/padding_size"
+            android:layout_marginTop="@dimen/medium_size"
+            android:text="Order ID" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_size"
+            android:textColor="@color/grey1"
+            android:layout_marginLeft="@dimen/padding_size"
+            android:layout_marginRight="@dimen/padding_size"
+            android:text="Placed On" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_size"
+            android:textColor="@color/grey1"
+            android:layout_marginLeft="@dimen/padding_size"
+            android:layout_marginRight="@dimen/padding_size"
+            android:text="Address" />
+
+        <TextView
+            android:id="@+id/tv_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_size"
+            android:textColor="@color/grey1"
+            android:layout_marginLeft="@dimen/padding_size"
+            android:layout_marginRight="@dimen/padding_size"
+        android:text="Mobile" />
+
+        <TextView
+            android:id="@+id/tv_payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_size"
+            android:textColor="@color/grey1"
+            android:layout_marginLeft="@dimen/padding_size"
+            android:layout_marginRight="@dimen/padding_size"
+            android:gravity="center"
+            android:text="example" />
+
+        <Button
+            android:id="@+id/btn_track"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/medium_size"
+            android:background="@color/red"
+            android:padding="@dimen/medium_size"
+            android:text="track_order"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
