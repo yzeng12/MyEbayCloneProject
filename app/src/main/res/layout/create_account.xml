@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context=".Splash"
+    tools:context=".ui.Splash"
 
     ><!-- tools:context=".Splash"-->
 
@@ -17,6 +17,7 @@
         android:layout_marginBottom="@dimen/medium_size"
         android:layout_marginLeft="@dimen/normal_txt_size"
         android:layout_marginTop="@dimen/normal_txt_size"
+
         android:text="Create a New account!"
         android:textColor="#000"
         android:textSize="25sp"
