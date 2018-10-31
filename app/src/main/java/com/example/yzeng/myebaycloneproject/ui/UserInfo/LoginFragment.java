@@ -1,4 +1,4 @@
-package com.example.yzeng.myebaycloneproject.ui;
+package com.example.yzeng.myebaycloneproject.ui.UserInfo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,14 +14,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.yzeng.myebaycloneproject.R;
-import com.example.yzeng.myebaycloneproject.ui.helperclasses.MainControllor;
+import com.example.yzeng.myebaycloneproject.ui.MainActivity;
 import com.example.yzeng.myebaycloneproject.ui.helperclasses.SPfiles;
-import com.example.yzeng.myebaycloneproject.ui.helperclasses.Util;
 import com.example.yzeng.myebaycloneproject.ui.helperclasses.Volley;
 
 import org.json.JSONArray;
@@ -41,8 +41,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.login, container, false);
-        et_mobile = view.findViewById(R.id.et_mobile);
-        et_password = view.findViewById(R.id.et_password);
+        et_mobile = view.findViewById(R.id.et_mobile_login);
+        et_password = view.findViewById(R.id.et_password_login);
         tv_create_account = view.findViewById(R.id.tv_newAccount);
         tv_create_account.setOnClickListener(this);
 
@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             SPfiles.setphone(getContext(), et_mobile.getText().toString());
 
-            if(  !Util.getUtilInstance().isValidMobile(et_mobile.getText().toString())){
+            if( !android.util.Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()){
 //                !android.util.Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()
                 progress.dismiss();
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
@@ -127,9 +127,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 };
 
                 //create the Request Queue and add the login Request into the Queue
+                Log.i(TAG, "onClick: "+et_mobile.getText().toString()+ et_password.getText().toString());
+
                 JsonArrayRequest jsonArrayRequest = Volley.getMyVolly()
                         .loginRequest(et_mobile.getText().toString(), et_password.getText().toString(), listener, errorListener);
-                MainControllor.getAppInstance().addToRequestQueue(jsonArrayRequest,"JsonArrayRequest");
+                RequestQueue requestQueue = com.android.volley.toolbox.Volley.newRequestQueue(getActivity());
+                Log.i(TAG, "onClick: "+requestQueue);
+                requestQueue.add(jsonArrayRequest);
+
+                //Connector.getAppInstance().addToRequestQueue(jsonArrayRequest);
             }
 
         } else if(id==R.id.tv_newAccount){

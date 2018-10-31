@@ -1,4 +1,4 @@
-package com.example.yzeng.myebaycloneproject.ui;
+package com.example.yzeng.myebaycloneproject.ui.UserInfo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

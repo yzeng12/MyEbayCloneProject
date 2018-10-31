@@ -1,4 +1,4 @@
-package com.example.yzeng.myebaycloneproject.ui;
+package com.example.yzeng.myebaycloneproject.ui.UserInfo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,11 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.yzeng.myebaycloneproject.R;
-import com.example.yzeng.myebaycloneproject.ui.helperclasses.MainControllor;
 import com.example.yzeng.myebaycloneproject.ui.helperclasses.Volley;
 
 public class NewUserFragment extends Fragment implements View.OnClickListener {
@@ -97,9 +97,10 @@ public class NewUserFragment extends Fragment implements View.OnClickListener {
                 StringRequest stringRequest = Volley.getMyVolly().newRegisterRequest(et_firstname.getText().toString(), et_lastname.getText().toString()
                         , et_address.getText().toString(), et_mobile.getText().toString(), et_email.getText().toString(), et_password.getText().toString()
                         , listener, errorListener);
-
+                RequestQueue requestQueue = com.android.volley.toolbox.Volley.newRequestQueue(getActivity());
+                requestQueue.add(stringRequest);
                 Log.i(TAG, "onClick: before controller");
-                MainControllor.getAppInstance().addToRequestQueue(stringRequest);
+                //Connector.getAppInstance().addToRequestQueue(stringRequest);
                 Log.i(TAG, "onClick: before switch");
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.MainPage, new LoginFragment()).commit();
 

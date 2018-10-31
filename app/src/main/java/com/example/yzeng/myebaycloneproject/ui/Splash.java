@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.example.yzeng.myebaycloneproject.R;
+import com.example.yzeng.myebaycloneproject.ui.UserInfo.LoginActivity;
 
 public class Splash extends AppCompatActivity {
     private ImageView imageView;
@@ -26,6 +27,6 @@ public class Splash extends AppCompatActivity {
                 Intent intent = new Intent(Splash.this, LoginActivity.class);
                 startActivity(intent);
             }
-        }, 3000);
+        }, 1000);
     }
 }

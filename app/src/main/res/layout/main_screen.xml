@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity"
-    android:background="@color/white_greyish"
+
     tools:openDrawer="start">
     <!--tools:context=".main"-->
     <LinearLayout
@@ -19,13 +19,13 @@
 
         <include
             layout="@layout/layout_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            />
 
         <FrameLayout
-            android:id="@+id/content"
+            android:id="@+id/Maincontent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></FrameLayout>
+            android:layout_height="match_parent"
+            ></FrameLayout>
 
     </LinearLayout>
 

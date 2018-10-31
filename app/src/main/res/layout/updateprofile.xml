@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#43a8ec"
+    tools:context=".ui.UserInfo.ChangeProfileFragment"
     >
 
     <!-- tools:context="." -->
@@ -15,7 +16,7 @@
         android:paddingTop="20dp">
 
         <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <EditText
             android:id="@+id/tv_update_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,8 +26,8 @@
             android:textSize="20sp"
             android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/tv_pro_firstname"
+        <EditText
+            android:id="@+id/et_Pfirstname"
             android:hint="first_name"
             style="@style/LogSignEdtTheme"
             />
@@ -37,8 +38,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@color/white_greyish" />
-        <TextView
-            android:id="@+id/tv_pro_lastname"
+        <EditText
+            android:id="@+id/et_Plastname"
             android:hint="last_name"
             style="@style/LogSignEdtTheme"
             />
@@ -49,8 +50,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@color/white_greyish" />
-        <TextView
-            android:id="@+id/tv_pro_mobile"
+        <EditText
+            android:id="@+id/et_Pmobile"
             android:hint="mobile"
             style="@style/LogSignEdtTheme"
            />
@@ -63,7 +64,7 @@
             android:background="@color/white_greyish" />
 
         <EditText
-            android:id="@+id/et_pro_email"
+            android:id="@+id/et_Pemail"
             android:hint="email"
             style="@style/LogSignEdtTheme"
             />
@@ -85,7 +86,7 @@
 
 
             android:background="@color/colorPrimary"
-            android:text="update_profile"
+            android:text="Updata my Profile"
             android:textColor="@color/white" />
         <View
             android:layout_width="match_parent"
@@ -129,7 +130,7 @@
 
 
             android:background="@color/colorPrimary"
-            android:text="Button"
+            android:text="Reset Password"
             android:textColor="@color/white" />
     </LinearLayout>
 
