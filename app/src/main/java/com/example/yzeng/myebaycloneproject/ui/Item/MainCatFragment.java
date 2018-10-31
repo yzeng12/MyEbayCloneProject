@@ -3,7 +3,6 @@ package com.example.yzeng.myebaycloneproject.ui.Item;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -19,8 +18,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.yzeng.myebaycloneproject.R;
 import com.example.yzeng.myebaycloneproject.adapter.MainCategoryAdapter;
 import com.example.yzeng.myebaycloneproject.adapter.SubCategoryAdapter;
-import com.example.yzeng.myebaycloneproject.objecgts.MainCatItem;
-import com.example.yzeng.myebaycloneproject.objecgts.SubCatItem;
+import com.example.yzeng.myebaycloneproject.objects.MainCatItem;
+import com.example.yzeng.myebaycloneproject.objects.SubCatItem;
 import com.example.yzeng.myebaycloneproject.ui.helperclasses.SPfiles;
 import com.example.yzeng.myebaycloneproject.ui.helperclasses.Volley;
 
@@ -103,7 +102,7 @@ public class MainCatFragment extends Fragment {
             }
         };
 
-        JsonObjectRequest categoryRequest = Volley.getMyVolly().categorysObject(
+        JsonObjectRequest categoryRequest = Volley.getMyVolly().MainCatRequest(
                 SPfiles.getSharePreference(getContext()).getString("apikey", null),
                 SPfiles.getSharePreference(getContext()).getString("id", null),
                 listener, errorListener);
@@ -139,18 +138,15 @@ public class MainCatFragment extends Fragment {
                         @Override
                         public void onItemClick(View view, int position) {
 
-                            Itemlist fragment = new Itemlist();
+                            ItemListFragment fragment = new ItemListFragment();
                             Bundle bundle = new Bundle();
-                            bundle.putString("cid", mainCatList.get(Mainposition).getMainCatid());
-                            bundle.putString("scid", subCatList.get(position).getSubCatid());
-                           // fragment.setArguments(bundle);
+                            bundle.putString("mainid", mainCatList.get(Mainposition).getMainCatid());
+                            bundle.putString("subid", subCatList.get(position).getSubCatid());
+                            fragment.setArguments(bundle);
                             getActivity().getSupportFragmentManager()
-                                    .beginTransaction().replace(R.id.Maincontent, fragment, "ProductFgt")
+                                    .beginTransaction().replace(R.id.Maincontent, fragment)
                                     .addToBackStack(null)
                                     .commit();
-
-                            Toast.makeText(getContext(), "sub item clicked", Toast.LENGTH_SHORT).show();
-                            //TODO goto item cart fragment
                         }
                     });
 
@@ -168,7 +164,7 @@ public class MainCatFragment extends Fragment {
             }
         };
         //String id, String api_key, String user_id
-        JsonObjectRequest subCategoryRequest = Volley.getMyVolly().subCategorysObject(mainCatList.get(position).getMainCatid(),
+        JsonObjectRequest subCategoryRequest = Volley.getMyVolly().subCatRequest(mainCatList.get(position).getMainCatid(),
                 SPfiles.getSharePreference(getContext()).getString("apikey", null),
                 SPfiles.getSharePreference(getContext()).getString("id", null), listener, errorListener);
         RequestQueue request1 = com.android.volley.toolbox.Volley.newRequestQueue(getActivity());

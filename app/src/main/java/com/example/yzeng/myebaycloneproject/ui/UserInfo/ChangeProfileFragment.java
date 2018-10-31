@@ -75,7 +75,7 @@ public class ChangeProfileFragment extends Fragment implements View.OnClickListe
                 };
 
 
-                StringRequest stringRequest = Volley.getMyVolly().updateProfileRequest(
+                StringRequest stringRequest = Volley.getMyVolly().ProfileRequest(
                         SPfiles.getSharePreference(getContext()).getString("firstname", null),
                         SPfiles.getSharePreference(getContext()).getString("lastname", null),
                         SPfiles.getSharePreference(getContext()).getString("address", null),

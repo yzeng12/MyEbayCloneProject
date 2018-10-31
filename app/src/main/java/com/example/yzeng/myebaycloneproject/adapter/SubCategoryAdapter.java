@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.yzeng.myebaycloneproject.R;
-import com.example.yzeng.myebaycloneproject.objecgts.MainCatItem;
-import com.example.yzeng.myebaycloneproject.objecgts.SubCatItem;
+import com.example.yzeng.myebaycloneproject.objects.MainCatItem;
+import com.example.yzeng.myebaycloneproject.objects.SubCatItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -19,8 +19,7 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         imageView = (ImageView) findViewById(R.id.splash_ebay);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade);
-        imageView.startAnimation(animation);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

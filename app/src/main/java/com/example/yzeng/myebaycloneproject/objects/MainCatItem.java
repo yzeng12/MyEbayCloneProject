@@ -1,4 +1,4 @@
-package com.example.yzeng.myebaycloneproject.objecgts;
+package com.example.yzeng.myebaycloneproject.objects;
 
 public class MainCatItem {
 

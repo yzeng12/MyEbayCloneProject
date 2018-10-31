@@ -8,14 +8,12 @@
     tools:context=".ui.UserInfo.ChangeProfileFragment"
     >
 
-    <!-- tools:context="." -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingTop="20dp">
 
-        <!-- TODO: Update blank fragment layout -->
         <EditText
             android:id="@+id/tv_update_profile"
             android:layout_width="wrap_content"
@@ -29,6 +27,7 @@
         <EditText
             android:id="@+id/et_Pfirstname"
             android:hint="first_name"
+            android:layout_marginStart="@dimen/medium_size"
             style="@style/LogSignEdtTheme"
             />
 
@@ -41,6 +40,7 @@
         <EditText
             android:id="@+id/et_Plastname"
             android:hint="last_name"
+            android:layout_marginStart="@dimen/medium_size"
             style="@style/LogSignEdtTheme"
             />
 
@@ -53,6 +53,7 @@
         <EditText
             android:id="@+id/et_Pmobile"
             android:hint="mobile"
+            android:layout_marginStart="@dimen/medium_size"
             style="@style/LogSignEdtTheme"
            />
 
@@ -66,6 +67,7 @@
         <EditText
             android:id="@+id/et_Pemail"
             android:hint="email"
+            android:layout_marginStart="@dimen/medium_size"
             style="@style/LogSignEdtTheme"
             />
 
@@ -98,6 +100,7 @@
         <EditText
             android:id="@+id/et_cur_password"
             android:hint="current_password"
+            android:layout_marginStart="@dimen/medium_size"
             style="@style/LogSignEdtTheme"
 
             android:inputType="textPassword"/>
@@ -110,6 +113,7 @@
         <EditText
             android:id="@+id/et_new_password"
             android:hint="new_password"
+            android:layout_marginStart="@dimen/medium_size"
             style="@style/LogSignEdtTheme"
 
             android:inputType="textPassword"/>

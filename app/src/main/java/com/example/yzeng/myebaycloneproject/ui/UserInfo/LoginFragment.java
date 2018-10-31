@@ -72,20 +72,20 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             SPfiles.setphone(getContext(), et_mobile.getText().toString());
 
-            if( !android.util.Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()){
+            if (!android.util.Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()) {
 //                !android.util.Patterns.PHONE.matcher(et_mobile.getText().toString()).matches()
                 progress.dismiss();
                 Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
             }
             //check whether the mobile for log in is valid
-            else if(et_mobile.getText().toString().length() != 10){
+            else if (et_mobile.getText().toString().length() != 10) {
                 progress.dismiss();
                 Toast.makeText(getContext(), "phone length !=10", Toast.LENGTH_SHORT).show();
-            } else if(et_password.getText().toString().length() < 6){
+            } else if (et_password.getText().toString().length() < 6) {
                 progress.dismiss();
-                Toast.makeText(getContext(),"password<6", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "password<6", Toast.LENGTH_SHORT).show();
             } else {
-                Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>(){
+                Response.Listener<JSONArray> listener = new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
@@ -93,7 +93,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                                 JsonObject:
                                 [{"msg":"success","id":"1249","firstname":"patel","lastname":"husain","email":"vansh3vns@gmail.com","mobile":"55565454","appapikey ":"4e200ca562c8f3dcda5f025b72508644"}]
                                  */
-                            for(int i = 0; i < response.length(); i++){
+                            for (int i = 0; i < response.length(); i++) {
                                 JSONObject jsonObject = response.getJSONObject(i);
                                 String msg = jsonObject.getString("msg");
                                 String id = jsonObject.getString("id");
@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                                 progress.dismiss();
                             }
-                        }catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
@@ -127,18 +127,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 };
 
                 //create the Request Queue and add the login Request into the Queue
-                Log.i(TAG, "onClick: "+et_mobile.getText().toString()+ et_password.getText().toString());
+                Log.i(TAG, "onClick: " + et_mobile.getText().toString() + et_password.getText().toString());
 
                 JsonArrayRequest jsonArrayRequest = Volley.getMyVolly()
                         .loginRequest(et_mobile.getText().toString(), et_password.getText().toString(), listener, errorListener);
                 RequestQueue requestQueue = com.android.volley.toolbox.Volley.newRequestQueue(getActivity());
-                Log.i(TAG, "onClick: "+requestQueue);
+                Log.i(TAG, "onClick: " + requestQueue);
                 requestQueue.add(jsonArrayRequest);
 
-                //Connector.getAppInstance().addToRequestQueue(jsonArrayRequest);
             }
 
-        } else if(id==R.id.tv_newAccount){
+        } else if (id == R.id.tv_newAccount) {
 
             getActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.MainPage, new NewUserFragment())

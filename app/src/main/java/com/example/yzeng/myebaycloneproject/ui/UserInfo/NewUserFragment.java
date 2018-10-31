@@ -94,7 +94,7 @@ public class NewUserFragment extends Fragment implements View.OnClickListener {
                     }
                 };
                 Log.i(TAG, "onClick: before request");
-                StringRequest stringRequest = Volley.getMyVolly().newRegisterRequest(et_firstname.getText().toString(), et_lastname.getText().toString()
+                StringRequest stringRequest = Volley.getMyVolly().RegisterRequest(et_firstname.getText().toString(), et_lastname.getText().toString()
                         , et_address.getText().toString(), et_mobile.getText().toString(), et_email.getText().toString(), et_password.getText().toString()
                         , listener, errorListener);
                 RequestQueue requestQueue = com.android.volley.toolbox.Volley.newRequestQueue(getActivity());
