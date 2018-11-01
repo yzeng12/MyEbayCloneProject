@@ -24,7 +24,7 @@ public class DB_DAO {
     }
 
     public void openDatabase(){
-        DB = DBHelper.getReadableDatabase();
+        DB = DBHelper.getWritableDatabase();
     }
 
     public void closeDatabase(){
@@ -47,22 +47,24 @@ public class DB_DAO {
         String sql = "SELECT quantity FROM " + cartTable + " WHERE pid =" + " " + id + " " + "AND mobile =" + " " + mobile + " ";
         Cursor result = DB.rawQuery(sql, null);
         //Log.i(TAG, "verifyItemInCart: "+result.toString());
-        result.moveToLast();
-        quantity = result.getInt(0);
+        for(result.moveToFirst(); !result.isAfterLast(); result.moveToNext()){
+
+            quantity = result.getInt(0);
+        }
 
         Log.i(TAG, "verifyItemInCart: "+quantity);
         return quantity;
     }
 
     public void updataCartQuantity(int newQuantity, String Itemid, String mobile){
-        String sql = "UPDATE " + cartTable + " SET quantity =" + "\"" + newQuantity + "\"" + "WHERE pid=" + "\"" + Itemid + "\"" + "AND mobile =" + "\"" + mobile + "\"";
+        String sql = "UPDATE " + cartTable + " SET quantity =" + " " + newQuantity + " " + "WHERE pid=" + " " + Itemid + " " + "AND mobile =" + " " + mobile + " ";
         DB.execSQL(sql);
     }
 
 
     public List<ShoppingCartItem> getCartList(String mobile){
         List<ShoppingCartItem> list = new ArrayList<>();
-        String sql = "SELECT pid, pname, quantity, prize, imageurl From " + cartTable + " WHERE mobile =" + "\"" + mobile + "\"";
+        String sql = "SELECT pid, pname, quantity, prize, imageurl From " + cartTable + " WHERE mobile =" + " " + mobile + " ";
         Cursor result = DB.rawQuery(sql +"", null);
         for(result.moveToFirst(); !result.isAfterLast(); result.moveToNext()){
             ShoppingCartItem shoppingCartItem = new ShoppingCartItem(result.getString(0),
@@ -77,12 +79,12 @@ public class DB_DAO {
     }
 
     public void deleteItem(String mobile){
-        String sql = "DELETE FROM " + cartTable + " WHERE mobile=" +  "\"" + mobile + "\"";
+        String sql = "DELETE FROM " + cartTable + " WHERE mobile=" +  " " + mobile + " ";
         DB.execSQL(sql);
     }
 
     public void deleteItemCart(String mobile, String pid){
-        String sql = "DELETE FROM " + cartTable + " WHERE mobile=" +  "\"" + mobile + "\"" + "AND pid =" + "\"" + pid + "\"";
+        String sql = "DELETE FROM " + cartTable + " WHERE mobile=" +  " " + mobile + " " + "AND pid =" + " " + pid + " ";
         DB.execSQL(sql);
     }
 

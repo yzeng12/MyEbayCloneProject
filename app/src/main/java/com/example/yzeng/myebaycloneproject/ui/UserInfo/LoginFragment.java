@@ -49,8 +49,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         btn_signin = view.findViewById(R.id.btn_signin);
         btn_signin.setOnClickListener(this);
 
-        //sp = getSharedPreferences("MyFile", MODE_PRIVATE);
-        //SharedPreferences.Editor editor = sp.edit();
         String phone = SPfiles.getphone(getContext());
 
         et_mobile.setText(phone);
@@ -139,7 +137,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         } else if (id == R.id.tv_newAccount) {
 
-            getActivity().getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.MainPage, new NewUserFragment())
                     .addToBackStack(null)
                     .commit();

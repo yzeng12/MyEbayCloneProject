@@ -143,8 +143,7 @@ public class MainCatFragment extends Fragment {
                             bundle.putString("mainid", mainCatList.get(Mainposition).getMainCatid());
                             bundle.putString("subid", subCatList.get(position).getSubCatid());
                             fragment.setArguments(bundle);
-                            getActivity().getSupportFragmentManager()
-                                    .beginTransaction().replace(R.id.Maincontent, fragment)
+                           getFragmentManager().beginTransaction().replace(R.id.Maincontent, fragment)
                                     .addToBackStack(null)
                                     .commit();
                         }

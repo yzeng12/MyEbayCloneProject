@@ -102,7 +102,7 @@ public class NewUserFragment extends Fragment implements View.OnClickListener {
                 Log.i(TAG, "onClick: before controller");
                 //Connector.getAppInstance().addToRequestQueue(stringRequest);
                 Log.i(TAG, "onClick: before switch");
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.MainPage, new LoginFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.MainPage, new LoginFragment()).commit();
 
             }
 

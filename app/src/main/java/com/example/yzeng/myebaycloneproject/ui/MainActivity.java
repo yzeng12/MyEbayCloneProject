@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.yzeng.myebaycloneproject.R;
 import com.example.yzeng.myebaycloneproject.ui.Item.MainCatFragment;
+import com.example.yzeng.myebaycloneproject.ui.Item.ShoppingCartFragment;
 import com.example.yzeng.myebaycloneproject.ui.UserInfo.ChangeProfileFragment;
 import com.example.yzeng.myebaycloneproject.ui.UserInfo.LoginActivity;
 import com.example.yzeng.myebaycloneproject.ui.helperclasses.SPfiles;
@@ -41,14 +42,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 tv_toolbarTitle.setText("My Shopping Cart");
-         /*       getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.Maincontent, new ChangeProfileFragment()).
-                    addToBackStack(null)
-                    .commit();
 
-                    */
-         //TODO
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.Maincontent, new ShoppingCartFragment()).
+                        addToBackStack(null)
+                        .commit();
+                //TODO
 
             }
         } );
@@ -137,15 +137,31 @@ public class MainActivity extends AppCompatActivity
                     addToBackStack(null)
                     .commit();
         } else if (id == R.id.order) {
+            tv_toolbarTitle.setText("My Shopping cart");
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.Maincontent, new ShoppingCartFragment()).
+                    addToBackStack(null)
+                    .commit();
 
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.orderhistory) {
+            tv_toolbarTitle.setText("order history");
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.Maincontent, new ChangeProfileFragment()).
+//                    addToBackStack(null)
+//                    .commit();
         } else if (id == R.id.logout) {
             SPfiles.clearUserInfo(getBaseContext());
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         } else if (id == R.id.techology) {
-
+            tv_toolbarTitle.setText("techology used");
+           /* getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.Maincontent, new techologyFragment()).
+                    addToBackStack(null)
+                    .commit();*/
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

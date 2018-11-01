@@ -29,7 +29,7 @@ import java.util.List;
 
 public class ItemListFragment extends Fragment {
     RecyclerView rv_Item_list;
-    List<ListItem> productsList;
+    List<ListItem> list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class ItemListFragment extends Fragment {
         Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                productsList = new ArrayList<>();
+                list = new ArrayList<>();
                 try {
                     JSONObject jsonObject = response;
                     JSONArray jsonArray = jsonObject.getJSONArray("products");
@@ -61,9 +61,9 @@ public class ItemListFragment extends Fragment {
                                 jsonObject1.getString("prize"),
                                 jsonObject1.getString("discription"),
                                 jsonObject1.getString("image"));
-                        productsList.add(listItem);
+                        list.add(listItem);
                     }
-                    ItemListAdapter adapter = new ItemListAdapter(getContext(), productsList);
+                    ItemListAdapter adapter = new ItemListAdapter(getContext(), list);
                     //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayout.VERTICAL, false);
                     RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
                     rv_Item_list.setLayoutManager(layoutManager);
@@ -72,7 +72,21 @@ public class ItemListFragment extends Fragment {
                     adapter.setOnItemClickListener(new ItemListAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View v, int position) {
-                            //TODO
+
+                            ItemDetail itemDetail = new ItemDetail();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("image", list.get(position).getImage());
+                            bundle.putString("name", list.get(position).getName());
+                            bundle.putString("price", list.get(position).getPrice());
+                            bundle.putString("description", list.get(position).getDiscription());
+                            bundle.putString("id", list.get(position).getId());
+
+                            itemDetail.setArguments(bundle);
+
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.Maincontent, itemDetail)
+                                    .addToBackStack(null)
+                                    .commit();
                             Toast.makeText(getContext(), "real item clicked", Toast.LENGTH_SHORT).show();
                         }
                     });
