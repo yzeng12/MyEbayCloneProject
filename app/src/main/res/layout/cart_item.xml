@@ -31,65 +31,66 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
+
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="5dp">
 
                 <TextView
                     android:id="@+id/tv_cart_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/normal_size"
-                    android:text="Name"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"/>
+                    android:text="YOU HAVE NO ITEM IN CART, GOTO SHOP"
+                    android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/tv_cart_price"
                     android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
                     android:padding="@dimen/normal_size"
-                    android:text="$11111" />
+                    android:text="$0"
+                    android:textStyle="bold"/>
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
+                    <ImageButton
+                        android:id="@+id/ib_cart_add"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:id="@+id/tv_cart_quantity"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <ImageButton
+                        android:id="@+id/ib_cart_minus"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:src="@drawable/ic_remove" />
+                    <ImageButton
+                        android:id="@+id/ib_cart_delete"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:src="@drawable/ic_delete" />
+                </LinearLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
 
-            <LinearLayout
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/ib_item_add"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:src="@drawable/ic_add" />
-
-                <TextView
-                    android:id="@+id/tv_cart_quantity"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="1" />
-
-                <ImageButton
-                    android:id="@+id/ib_item_minus"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:src="@drawable/ic_remove" />
-            </LinearLayout>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

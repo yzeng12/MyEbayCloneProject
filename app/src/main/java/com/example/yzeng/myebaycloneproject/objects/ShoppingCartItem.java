@@ -5,14 +5,14 @@ public class ShoppingCartItem {
     private String pid;
     private String pname;
     private int quantity;
-    private String prize;
+    private String price;
     private String image;
 
-    public ShoppingCartItem(String pid, String pname, int quantity, String prize, String image) {
+    public ShoppingCartItem(String pid, String pname, int quantity, String price, String image) {
         this.pid = pid;
         this.pname = pname;
         this.quantity = quantity;
-        this.prize = prize;
+        this.price = price;
         this.image = image;
     }
 
@@ -40,12 +40,12 @@ public class ShoppingCartItem {
         this.quantity = quantity;
     }
 
-    public String getPrize() {
-        return prize;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPrize(String prize) {
-        this.prize = prize;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getImage() {

@@ -30,8 +30,6 @@ public class ShoppingCartFragment extends Fragment implements View.OnClickListen
     private TextView tv_delivery;
     private TextView tv_total;
     private TextView tv_subtotal;
-    private Button btn_checkout_confirm;
-    private Button btn_checkout_cancel;
     private ShoppingCartAdapter shoppingCartAdapter;
     private static final int deliveryfee = 10;
     private static final double taxrate = 0.1;
@@ -51,11 +49,11 @@ public class ShoppingCartFragment extends Fragment implements View.OnClickListen
         return view;
     }
 
-    private void caculateTotal() {
+    public void caculateTotal() {
 
         int subtotal = 0;
         for (int i = 0; i < shopping_cart_list.size(); i++) {
-            subtotal = subtotal + (Integer.parseInt(shopping_cart_list.get(i).getPrize()) * shopping_cart_list.get(i).getQuantity());
+            subtotal = subtotal + (Integer.parseInt(shopping_cart_list.get(i).getPrice()) * shopping_cart_list.get(i).getQuantity());
         }
 
         double taxes = (double) (subtotal * taxrate);
@@ -72,8 +70,6 @@ public class ShoppingCartFragment extends Fragment implements View.OnClickListen
         rv_cart = view.findViewById(R.id.rv_cart);
         btn_cart_checkout = view.findViewById(R.id.btn_cart_checkout);
         btn_cart_checkout.setOnClickListener(this);
-        btn_checkout_cancel = view.findViewById(R.id.btn_checkout_cancel);
-        btn_checkout_cancel.setOnClickListener(this);
         tv_subtotal = view.findViewById(R.id.tv_subtotal);
         tv_tax = view.findViewById(R.id.tv_tax);
         tv_delivery = view.findViewById(R.id.tv_delivery);
@@ -89,7 +85,7 @@ public class ShoppingCartFragment extends Fragment implements View.OnClickListen
     }
 
     public void initRecycleView() {
-        shoppingCartAdapter = new ShoppingCartAdapter(getContext(), shopping_cart_list);
+        shoppingCartAdapter = new ShoppingCartAdapter(getContext(), shopping_cart_list,ShoppingCartFragment.this);
         rv_cart.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rv_cart.setAdapter(shoppingCartAdapter);
     }
@@ -97,16 +93,6 @@ public class ShoppingCartFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
-            case R.id.btn_cart_checkout:
-                //something
-                break;
-            case R.id.btn_checkout_cancel:
-                //something
-                break;
-
-
-        }
+       //confirm order
     }
 }

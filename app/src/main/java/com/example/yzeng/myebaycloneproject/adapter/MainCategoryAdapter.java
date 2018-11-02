@@ -2,6 +2,7 @@ package com.example.yzeng.myebaycloneproject.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.yzeng.myebaycloneproject.R;
 import com.example.yzeng.myebaycloneproject.objects.MainCatItem;
+import com.example.yzeng.myebaycloneproject.ui.Item.ShoppingCartFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class MainCategoryAdapter extends RecyclerView.Adapter<MainCategoryAdapte
     private List<MainCatItem> mainCatItems;
     private OnItemClickListener mOnItemClickListener;
 
-
+    Fragment fragment;
     public MainCategoryAdapter(Context context, List<MainCatItem> mainCatItems) {
         this.context = context;
         this.mainCatItems = mainCatItems;

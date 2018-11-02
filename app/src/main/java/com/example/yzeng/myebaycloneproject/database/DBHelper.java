@@ -22,16 +22,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 "prize varchar," +
                 "imageurl varchar)";
         db.execSQL(sql);
-
-//        String likeSQL = "create table wishCart(" +
-//                "id INTEGER primary key autoincrement," +
-//                "mobile varchar," +
-//                "pid varchar," +
-//                "pname varchar," +
-//                "quantity INTEGER," +
-//                "prize varchar," +
-//                "imageurl varchar)";
-//        db.execSQL(likeSQL);
     }
 
     @Override

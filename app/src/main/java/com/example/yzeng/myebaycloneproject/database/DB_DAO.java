@@ -16,7 +16,6 @@ public class DB_DAO {
     private DBHelper DBHelper;
     private SQLiteDatabase DB;
     private String cartTable = "shoppingCart";
-    private String wishTable = "wishCart";
 
     private static final String TAG = "DB_DAO";
     public DB_DAO(Context context) {
